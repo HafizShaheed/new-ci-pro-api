@@ -1,20 +1,20 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css')?>">
     <title><?php echo $title;?></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css')?>">   
     <style>
-
-.error{
-    color: red;
-}
-.pass{
-    color: lightgreen
-}
-</style>
+        .error {
+            color: red;
+        }
+        .pass {
+            color: lightgreen;
+        }
+    </style>
 </head>
 <body>
     
@@ -48,6 +48,9 @@
             <a class="nav-link" href="<?php echo base_url('/dashboard/index');?>">Dashboard </a>
             </li> 
             <li class="nav-item ">
+                <a class="nav-link" href="<?php echo base_url('/categoryController');?>">Category </a>
+            </li>
+						<li class="nav-item ">
                 <a class="nav-link" href="<?php echo base_url('/users/logout');?>">logout </a>
             </li>
         <?php } else {?>
