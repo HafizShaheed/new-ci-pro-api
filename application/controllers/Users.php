@@ -70,20 +70,23 @@ class Users  extends CI_Controller{
             $password = $this->security->xss_clean($this->input->post('password'));
 
             $user = $this->users_model->login($email, $password);
-
-            if ($user) {
+						// print_r($user['user']->id );
+						// die;
+            if ($user['status']== 'success') {
                 $userdata = array(
-                    'id' => $user->id,
-                    'first_name' => $user->first_name,
-                    'last_name' => $user->last_name,
-                    'email' => $user->email,
+                    'id' => $user['user']->id,
+                    'first_name' => $user['user']->first_name,
+                    'last_name' => $user['user']->last_name,
+                    'email' => $user['user']->email,
+										'active' =>  $user['user']->active,
                     'authenticated' => TRUE,
                 );
 
                 $this->session->set_userdata($userdata);
                 redirect('dashboard');
             }else {
-                $this->session->set_flashdata('message', 'Invalid email or password');
+
+                $this->session->set_flashdata('message', $user['message']);
                 redirect('users/login');
             }
         }

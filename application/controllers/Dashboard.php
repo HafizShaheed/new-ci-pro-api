@@ -21,6 +21,8 @@ class Dashboard  extends CI_Controller{
 
     public function index(){
 
+			$user_id = $this->session->userdata('id');
+			$data['user'] =$this->users_model->get_login_User($user_id);
             $data['title'] = "Dashboard";
             $this->load->view('include/header', $data);
             $this->load->view('dashboard/index', $data);
